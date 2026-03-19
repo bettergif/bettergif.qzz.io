@@ -1,59 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #fafafa;
-            color: #333;
-        }
-        .content {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-        .sidebar {
-            width: 200px;
-            background: #f4f4f4;
-            padding: 10px;
-            border-right: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .sidebar img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>404 — Page Not Found</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    /* Small inline tweaks for the 404 page */
+    .error-container { padding: 6rem 0; text-align: center; }
+    .error-code { font-size: 8rem; line-height: 1; font-weight: 700; }
+    .error-msg { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .btn-home { margin-top: 1rem; }
+    .footer-fixed-bottom { position: relative; bottom: 0; width: 100%; }
+    @media (max-width:600px) {
+      .error-code { font-size: 5rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="sidebar">
-        <img id="randomImage" src="" alt="Random 404 Image">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">BetterGIF</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/about.html">About</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/about.html">About</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
-    <div class="content">
-        <h1>404 - Page Not Found</h1>
-        <p>Sorry, the page you are looking for does not exist.</p>
+  </nav>
+
+  <main class="error-container container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel grey lighten-4">
+          <h1 class="error-code orange-text">404</h1>
+          <h4 class="error-msg">Oops — we couldn't find that page.</h4>
+          <p class="light">The page you’re looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+
+          <div>
+            <a href="/" class="btn-large waves-effect waves-light orange btn-home"><i class="material-icons left">home</i>Take me home</a>
+            <a href="/about.html" class="btn-flat">Learn about BetterGIF</a>
+          </div>
+
+          <div style="margin-top:1.5rem;">
+            <form action="/search" method="get" style="max-width:480px;margin:0 auto;">
+              <div class="input-field">
+                <input id="q" name="q" type="search" placeholder="Search the site" required>
+                <label class="label-icon" for="q"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        const images = [
-            'https://raw.githubusercontent.com/bettergif/bettergif.qzz.io/main/404images/image1.jpg',
-            'https://raw.githubusercontent.com/bettergif/bettergif.qzz.io/main/404images/image2.jpg',
-            'https://raw.githubusercontent.com/bettergif/bettergif.qzz.io/main/404images/image3.jpg',
-            // Add more image URLs here
-        ];
+    <div class="row" style="margin-top:2rem;">
+      <div class="col s12 m6">
+        <h6 class="light">Popular links</h6>
+        <ul class="browser-default">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="https://github.com/bettergif">GitHub</a></li>
+        </ul>
+      </div>
 
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        document.getElementById('randomImage').src = randomImage;
-    </script>
+      <div class="col s12 m6">
+        <h6 class="light">Contact</h6>
+        <p class="light">If you believe this is an error, please <a href="/contact.html">contact the site owner</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer orange footer-fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">BetterGIF</h5>
+          <p class="grey-text text-lighten-4">A simple GIF hosting service.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="https://thofficial.infree.page">Main site</a></li>
+            <li><a class="white-text" href="https://github.com/bettergif">BetterGIF GH</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made possible with <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize CSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+    });
+  </script>
 </body>
 </html>
+
