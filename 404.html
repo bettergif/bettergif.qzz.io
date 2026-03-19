@@ -16,6 +16,9 @@
     .error-msg { font-size: 1.25rem; margin-bottom: 1.5rem; }
     .btn-home { margin-top: 1rem; }
     .footer-fixed-bottom { position: relative; bottom: 0; width: 100%; }
+    .random-media { max-width:480px; margin:1.25rem auto 0; }
+    .random-media img { width:100%; height:auto; border-radius:6px; display:block; }
+    .media-caption { margin-top:.5rem; font-size:.9rem; }
     @media (max-width:600px) {
       .error-code { font-size: 5rem; }
     }
@@ -34,6 +37,115 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+
+  <main class="error-container container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel grey lighten-4">
+          <h1 class="error-code orange-text">404</h1>
+          <h4 class="error-msg">Oops — we couldn't find that page.</h4>
+          <p class="light">The page you’re looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+
+          <div>
+            <a href="/" class="btn-large waves-effect waves-light orange btn-home"><i class="material-icons left">home</i>Take me home</a>
+            <a href="/about.html" class="btn-flat">Learn about BetterGIF</a>
+          </div>
+
+          <div style="margin-top:1.5rem;">
+            <button id="random-btn" class="btn waves-effect waves-light orange" type="button">
+              <i class="material-icons left">shuffle</i>Show me a random GIF
+            </button>
+
+            <div id="random-media" class="random-media" aria-live="polite" style="display:none;">
+              <a id="media-link" href="#" target="_blank" rel="noopener noreferrer">
+                <img id="media-img" src="" alt="Random GIF or image">
+              </a>
+              <div id="media-caption" class="media-caption"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:2rem;">
+      <div class="col s12 m6">
+        <h6 class="light">Popular links</h6>
+        <ul class="browser-default">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="https://github.com/bettergif">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="col s12 m6">
+        <h6 class="light">Contact</h6>
+        <p class="light">If you believe this is an error, please <a href="contact@bettergif.qzz.io">contact the site owner</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer orange footer-fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">BetterGIF</h5>
+          <p class="grey-text text-lighten-4">A simple GIF hosting service.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="https://thofficial.infree.page">Main site</a></li>
+            <li><a class="white-text" href="https://github.com/bettergif">BetterGIF GH</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made possible with <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize CSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+
+      // Put your actual media URLs here
+      var randomMedia = [
+        '/404images/gifs/fun1.gif',
+        '/404images/gifs/fun2.gif',
+        '/404images/gifs/fun3.gif',
+        '/404images/images/uh-oh2.jpg',
+        '/404images/images/uh-oh.png'
+      ];
+
+      var btn = document.getElementById('random-btn');
+      var container = document.getElementById('random-media');
+      var img = document.getElementById('media-img');
+      var link = document.getElementById('media-link');
+      var caption = document.getElementById('media-caption');
+
+      function showRandom() {
+        if (!randomMedia.length) return;
+        var idx = Math.floor(Math.random() * randomMedia.length);
+        var url = randomMedia[idx];
+        img.src = url;
+        img.alt = 'Random media';
+        link.href = url;
+        caption.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener noreferrer">Open media</a>';
+        container.style.display = 'block';
+      }
+
+      btn.addEventListener('click', showRandom);
+    });
+  </script>
+</body>
+</html>
 
   <main class="error-container container">
     <div class="row">
